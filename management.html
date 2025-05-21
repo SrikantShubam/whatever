@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestige Gold - Management</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      background-color: #000;
+      color: #f5f5f5;
+      margin-left: 40px;
+      margin-right: 40px;
+      font-family: sans-serif;
+    }
+    @media (max-width: 1024px) {
+      body {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
+    @media (max-width: 768px) {
+      body {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+    .gold-btn {
+      background-color: #FFE115;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    .gold-btn:hover {
+      background-color: #e6d315;
+    }
+    #menu-toggle {
+      color: #FFD700;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    @media (max-width: 1023px) {
+      #nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      #nav-menu.active {
+        display: flex;
+        transform: translateX(0);
+      }
+      #nav-menu a {
+        color: white;
+      }
+    }
+    @media (min-width: 1024px) {
+      #nav-menu {
+        position: static;
+        transform: none;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+      }
+      #nav-menu a {
+        color: white;
+      }
+    }
+    
+    .team-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .team-card:hover {
+      background-color: #1a1a1a;
+      transform: translateY(-4px);
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+    }
+    .linkedin-icon {
+      color: #0A66C2;
+      transition: transform 0.3s ease;
+    }
+    .linkedin-icon:hover {
+      transform: scale(1.2);
+    }
+    .gold-gradient {
+      background: linear-gradient(90deg, #FFD700 0%, #FFC107 100%);
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #FFD700;
+      margin-top: 8px;
+    }
+    .footer-link:hover {
+      color: #FFE115;
+    }
+    /* Fix for navigation hover effect */
+    #nav-menu a:hover {
+      color: #FFD700 !important;
+    }
+    .active{
+         color: #FFD700 !important;
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <!-- Navbar -->
+  <nav class="sticky top-0 flex items-center justify-between px-6 py-4 mt-6 z-50 bg-black">
+    <div class="text-yellow-400 font-bold text-xl">Vestige Gold</div>
+    <ul id="nav-menu" class="flex-1 flex flex-col lg:flex-row justify-center space-y-4 lg:space-y-0 lg:space-x-6 text-white text-sm">
+      <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+      <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
+      <li><a href="#management" class="text-yellow-400 font-medium active">Management</a></li>
+ 
+      <li><a href="index.html#news" class="hover:text-yellow-400">Latest News</a></li>
+    </ul>
+    <button id="menu-toggle" class="lg:hidden"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="relative min-h-[40vh] flex items-center justify-center py-24">
+    <div class="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center opacity-20"></div>
+    <div class="relative z-10 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Our <span class="text-yellow-400">Leadership</span></h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-300">Meet the experienced team behind Vestige Gold's success in the global mining industry.</p>
+    </div>
+  </div>
+
+  <!-- Board of Directors -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 section-title">Board of Directors</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Director Card -->
+        <div class="team-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-yellow-400">Donald Graham Foot Jr.</h3>
+              <p class="text-gray-400">President & CEO</p>
+            </div>
+            <a href="https://www.linkedin.com/in/donald-foot-07240425/" target="_blank" aria-label="LinkedIn Profile" class="linkedin-icon">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+          </div>
+          <div class="flex-grow">
+            <div class="mb-4">
+              <img src="management/Donald Foot.jpg" alt="Donald Graham Foot Jr." class="w-full h-60 object-cover rounded-lg">
+            </div>
+            <p class="text-sm text-gray-300 mb-4">With over 45 years in mineral processing, Mr. Foot has authored 100+ technical publications, holds 9 patents, and currently leads Veragold Mining Company as President & CEO.</p>
+            <div class="mt-auto">
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Metallurgy</span>
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Leadership</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Management Team -->
+  <section class="py-16 bg-black bg-opacity-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 section-title">Management Team</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Management Card 1 -->
+        <div class="team-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-yellow-400">Aditya Raj Kothari</h3>
+              <p class="text-gray-400">CEO</p>
+            </div>
+            <a href="https://www.linkedin.com/in/aditya-raj-kothari/" target="_blank" aria-label="LinkedIn Profile" class="linkedin-icon">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+          </div>
+          <div class="flex-grow">
+            <div class="mb-4">
+              <img src="management/Aditya raj kothari.jpg" alt="Aditya Raj Kothari" class="w-full h-48 object-cover rounded-lg">
+            </div>
+            <p class="text-sm text-gray-300 mb-4">Aditya helped raise a $75 million fund at Athenian Capital and structured $100 million in deals at Venture University. Named Best Youth Leader in the Natural Resources Industry by the Evergreen Awards (2025).</p>
+            <div class="mt-auto">
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Finance</span>
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Leadership</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Management Card 2 -->
+        <div class="team-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-yellow-400">Jason Allen</h3>
+              <p class="text-gray-400">Operations</p>
+            </div>
+            <a href="https://www.linkedin.com/in/jason-allen-47633a18/" target="_blank" aria-label="LinkedIn Profile" class="linkedin-icon">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+          </div>
+          <div class="flex-grow">
+            <div class="mb-4">
+              <img src="management/Jasson Allen.jpg" alt="Jason Allen" class="w-full h-48 object-cover rounded-lg">
+            </div>
+            <p class="text-sm text-gray-300 mb-4">Operations leader with 30+ years optimizing industrial and chemical facilities. US Marine Corps veteran who has managed budgets up to $100M and teams of 200+, driving breakthroughs in process reliability.</p>
+            <div class="mt-auto">
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Operations</span>
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Senior Strategic Advisor -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 section-title">Senior Strategic Advisor</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Advisor Card -->
+        <div class="team-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-yellow-400">Sidi Mohamed Kaem</h3>
+              <p class="text-gray-400">President, National Federation of Gold Factories</p>
+            </div>
+            <a href="https://www.linkedin.com/in/sidi-mohamed-kaem-ab161a96/" target="_blank" aria-label="LinkedIn Profile" class="linkedin-icon">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+          </div>
+          <div class="flex-grow">
+            <div class="mb-4">
+              <img src="management/sidi mohammed kaem.jpg" alt="Sidi Mohamed Kaem" class="w-full h-48 object-cover rounded-lg">
+            </div>
+            <p class="text-sm text-gray-300 mb-4">A respected public affairs adviser and entrepreneur with extensive experience in Mauritania's mining sector. He has been instrumental in promoting sustainable mining practices and attracting investments.</p>
+            <div class="mt-auto">
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Strategy</span>
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Public Affairs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Board of Advisors -->
+  <section class="py-16 bg-black bg-opacity-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 section-title">Board of Advisors</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <!-- Advisor Card 1 -->
+        <div class="team-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-yellow-400">Tania IIieva</h3>
+              <p class="text-gray-400">Geologist</p>
+            </div>
+            <a href="https://www.linkedin.com/in/taniailieva/" target="_blank" aria-label="LinkedIn Profile" class="linkedin-icon">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+          </div>
+          <div class="flex-grow">
+            <div class="mb-4">
+              <img src="management/Tania-Ilieva.jpg" alt="Tania IIieva" class="w-full h-48 object-cover rounded-lg">
+            </div>
+            <p class="text-sm text-gray-300 mb-4">Over 20 years' experience in mineral exploration and resource geology. Ph.D. in Geology with expertise in resource estimation and NI 43-101 reporting.</p>
+            <div class="mt-auto">
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Geology</span>
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Resource Estimation</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Advisor Card 2 -->
+        <div class="team-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-yellow-400">Mary Juetten</h3>
+              <p class="text-gray-400">Finance and Legal</p>
+            </div>
+            <a href="https://www.linkedin.com/in/maryjuetten/" target="_blank" aria-label="LinkedIn Profile" class="linkedin-icon">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+          </div>
+          <div class="flex-grow">
+            <div class="mb-4">
+              <img src="management/Mary Juetten.jpg" alt="Mary Juetten" class="w-full h-48 object-cover rounded-lg">
+            </div>
+            <p class="text-sm text-gray-300 mb-4">Distinguished executive with 35+ years leading global finance, legal, and ESG initiatives across natural resources, technology, and engineering/construction.</p>
+            <div class="mt-auto">
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Finance</span>
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Legal</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Advisor Card 3 -->
+        <div class="team-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-yellow-400">Dr. Eric Lilford</h3>
+              <p class="text-gray-400">Project Economics</p>
+            </div>
+            <a href="https://www.linkedin.com/in/ericlilford/" target="_blank" aria-label="LinkedIn Profile" class="linkedin-icon">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+          </div>
+          <div class="flex-grow">
+            <div class="mb-4">
+              <img src="management/Eric Lilford.jpg" alt="Dr. Eric Lilford" class="w-full h-48 object-cover rounded-lg">
+            </div>
+            <p class="text-sm text-gray-300 mb-4">With 30+ years in natural resources, Dr. Lilford is an Associate Professor and Head of Minerals & Energy Economics at Curtin University, advising the IMF and World Bank.</p>
+            <div class="mt-auto">
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Economics</span>
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Green Energy</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Advisor Card 4 -->
+        <div class="team-card">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-yellow-400">Beth Borody</h3>
+              <p class="text-gray-400">Sustainability</p>
+            </div>
+            <a href="https://www.linkedin.com/in/beth-borody-cdi-d-9091ab3b/" target="_blank" aria-label="LinkedIn Profile" class="linkedin-icon">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+          </div>
+          <div class="flex-grow">
+            <div class="mb-4">
+              <img src="management/Beth Borody.jpg" alt="Beth Borody" class="w-full h-48 object-cover rounded-lg">
+            </div>
+            <p class="text-sm text-gray-300 mb-4">Mining executive with 20+ years of ESG experience, named to the WIM UK WIM100 (2024) and Globe & Mail's Top 50 Changemakers (2021). Founder of Femina Collective.</p>
+            <div class="mt-auto">
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">Sustainability</span>
+              <span class="inline-block bg-gray-800 rounded-full px-3 py-1 text-xs font-semibold text-gray-300 mr-2 mb-2">ESG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-400 py-12 mt-20 border-t border-gray-800">
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0">
+      <div>
+        <h2 class="text-yellow-400 font-bold text-xl">Vestige Gold</h2>
+        <p class="mt-2 text-sm">© 2025 Vestige Gold. All rights reserved.</p>
+      </div>
+      <div class="flex flex-col lg:flex-row lg:space-x-6 space-y-2 lg:space-y-0">
+        <a href="#" class="footer-link hover:text-yellow-400">Home</a>
+        <a href="#about" class="footer-link hover:text-yellow-400">About Us</a>
+        <a href="#management" class="footer-link hover:text-yellow-400">Management</a>
+        <a href="#privacy" class="footer-link hover:text-yellow-400">Privacy</a>
+        <a href="#news" class="footer-link hover:text-yellow-400">Latest News</a>
+        <a href="https://wa.me/10169" class="footer-link hover:text-yellow-400 flex items-center"><i class="fab fa-whatsapp mr-2"></i>Agency 10169</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const isMenuToggle = event.target.closest('#menu-toggle');
+      const isNavMenu = event.target.closest('#nav-menu');
+      
+      if (!isMenuToggle && !isNavMenu) {
+        document.getElementById('nav-menu').classList.remove('active');
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+        
+        // Close mobile menu after clicking
+        document.getElementById('nav-menu').classList.remove('active');
+      });
+    });
+
+    // Add animation on scroll
+    window.addEventListener('scroll', function() {
+      const cards = document.querySelectorAll('.team-card');
+      
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (cardTop < windowHeight - 100) {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }
+      });
+    });
+
+    // Initialize cards with opacity 0
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.team-card');
+      
+      cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+      
+      // Trigger scroll event to show visible cards
+      window.dispatchEvent(new Event('scroll'));
+    });
+  </script>
+</body>
+</html>

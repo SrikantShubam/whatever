@@ -62,6 +62,7 @@
       #nav-menu.active {
         display: flex;
         transform: translateX(0);
+        color: #FFD700;
       }
       #nav-menu a {
         color: white;
@@ -82,6 +83,9 @@
         color: white;
       }
     }
+    .nav-menu a:hover {
+      color: #FFD700;
+    }
     .news-card {
       background-color: #111;
       border: 1px solid #333;
@@ -97,6 +101,90 @@
     .footer-link:hover {
       color: #FFE115;
     }
+    .footer {
+      background-color: #000;
+      color: #f5f5f5;
+      padding: 2rem 0;
+      border-top: 1px solid #FFD700;
+    }
+    .footer a {
+      color: #f5f5f5;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #FFD700;
+    }
+    .footer .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+    }
+    .footer .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer .contact {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer .copyright {
+      font-size: 0.875rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .contact-item i {
+      color: #FFD700;
+      font-size: 1.25rem;
+    }
+    .contact-item span, .contact-item a {
+      font-size: 1rem;
+    }
+    .contact-item a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+    .map-wrapper {
+      position: relative;
+      padding-bottom: 50%;
+      height: 0;
+      overflow: hidden;
+    }
+    .map-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .active {
+      color: #FFD700 !important;
+    }
+    /* Scroll animation styles */
+    section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="font-sans">
@@ -104,11 +192,10 @@
   <nav class="sticky top-0 flex items-center justify-between px-6 py-4 mt-[25px] z-50 bg-black">
     <div class="text-yellow-400 font-bold text-lg">Vestige Gold</div>
     <ul id="nav-menu" class="flex-1 flex flex-col lg:flex-row justify-center space-y-4 lg:space-y-0 lg:space-x-6 text-white text-sm">
-      <li><a href="#" class="hover:text-yellow-400">Home</a></li>
+      <li><a href="#" class="hover:text-yellow-400 active">Home</a></li>
       <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
-      <li><a href="#management" class="hover:text-yellow-400">Management</a></li>
-      <li><a href="#privacy" class="hover:text-yellow-400">Privacy</a></li>
-      <li><a href="#news" class="hover:text-yellow-400">Latest News</a></li>
+      <li><a href="management.html" class="hover:text-yellow-400">Management</a></li>
+      <li><a href="index.html#news" id="news" class="hover:text-yellow-400">Latest News</a></li>
     </ul>
     <button id="menu-toggle" class="lg:hidden"><i class="fas fa-bars"></i></button>
   </nav>
@@ -123,7 +210,7 @@
       sustainable mining, and visionary leadership. Our mission is to shape a responsible legacy that uplifts
       communities and ecosystems alike.
     </p>
-    <img src="big event.png" alt="Gold Texture" class="w-full rounded-[20px] shadow-md">
+    <img src="banner-img.jpg" alt="Gold Texture" class="w-full h-[250px] md:h-[350px] lg:h-[450px] rounded-[20px] shadow-md object-cover">
   </section>
 
   <!-- About Us -->
@@ -151,27 +238,18 @@
       of ethical stewardship, strategic foresight, and transformative innovation.
     </p>
     <div class="text-center">
-      <button class="gold-btn">Read More</button>
+      <a href="management.html">
+        <button class="gold-btn">Read More</button>
+      </a>
     </div>
     <img src="image 2.png" alt="Team" class="mt-8 mx-auto w-4/5 rounded-[20px] shadow-md">
-  </section>
-
-  <!-- Privacy -->
-  <section id="privacy" class="py-20 px-6">
-    <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold mb-4">Privacy & Legal</h2>
-    <p class="max-w-3xl text-gray-300 mb-6">
-      At Vestige Gold, we are committed to protecting the trust placed in us by our stakeholders. Our privacy and legal
-      policies are guided by transparency, accountability, and international compliance standards. We safeguard personal
-      data, uphold ethical business conduct, and ensure full alignment with evolving ESG and governance frameworks.
-    </p>
-    <button class="gold-btn">Read More</button>
   </section>
 
   <!-- Latest News -->
   <section id="news" class="py-20 px-6">
     <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold mb-6">Latest News</h2>
     <p class="text-gray-300 mb-4">Stay informed with the latest developments from Vestige Gold.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 m">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="news-card p-6 mt-10">
         <i class="fa-solid fa-newspaper mb-3 text-yellow-400 text-2xl"></i>
         <p class="mb-4">Aditya Raj Kothari Advocates Sustainability, Ethical Leadership, and Innovation at Critical Minerals North American Conference</p>
@@ -179,8 +257,7 @@
       </div>
       <div class="news-card p-6 mt-10">
         <i class="fa-solid fa-newspaper mb-3 text-yellow-400 text-2xl"></i>
-        <p class="mb-4">Aditya Raj Kothari Launches Vestige Gold Inc, a subsidiary of Vasundhara Ananta Natural Resources Inc. to drive Ethical Leadership and Sustainable Resource Management
-</p>
+        <p class="mb-4">Aditya Raj Kothari Launches Vestige Gold Inc, a subsidiary of Vasundhara Ananta Natural Resources Inc. to drive Ethical Leadership and Sustainable Resource Management</p>
         <a href="https://apnews.com/press-release/marketersmedia/vasundhara-ananta-raj-kothari-46b2a199dc2a64277ef43a79938664e3" target="_blank" class="gold-btn">Read More</a>
       </div>
       <div class="news-card p-6 mt-10">
@@ -191,12 +268,48 @@
     </div>
   </section>
 
+  <!-- Contact Us -->
+  <section id="contact" class="py-20 px-6">
+    <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold mb-6">Contact Us</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-building"></i>
+          <span>VESTIGE GOLD INC.</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-user-tie"></i>
+          <span>Mr. Aditya Raj Kothari, Chief Executive Officer</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>One World Trade Center - 85th Floor, Suite 8500, NY, 10007</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-mobile-alt"></i>
+          <a href="tel:2097765197">Mobile: 209-776-5197</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <a href="tel:2125615893">Office: 212-561-5893</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:adityaraj@vestige.gold">adityaraj@vestige.gold</a>
+        </div>
+      </div>
+      <div class="map-wrapper rounded-[20px]">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d378.02994191016563!2d-74.01366755430068!3d40.71274310171459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a197c06b7cb%3A0x40a06c78f79e5de6!2sOne%20World%20Trade%20Center!5e0!3m2!1sen!2sus!4v1747855347750!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-black text-gray-400 py-12 mt-20 border-t border-gray-800">
     <div class="container mx-auto px-6 flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0">
       <div>
         <h2 class="text-yellow-400 font-bold text-xl">Vestige Gold</h2>
-        <p class="mt-2 text-sm">© 2024 Vestige Gold. All rights reserved.</p>
+        <p class="mt-2 text-sm">© 2025 Vestige Gold. All rights reserved.</p>
       </div>
       <div class="flex flex-col lg:flex-row lg:space-x-6 space-y-2 lg:space-y-0">
         <a href="#" class="footer-link hover:text-yellow-400">Home</a>
@@ -212,6 +325,25 @@
   <script>
     document.getElementById('menu-toggle').addEventListener('click', function () {
       document.getElementById('nav-menu').classList.toggle('active');
+    });
+
+    // Scroll animation logic
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section');
+      
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (sectionTop < windowHeight - 100) {
+          section.classList.add('visible');
+        }
+      });
+    });
+
+    // Trigger scroll event on page load to check initially visible sections
+    document.addEventListener('DOMContentLoaded', function() {
+      window.dispatchEvent(new Event('scroll'));
     });
   </script>
 </body>

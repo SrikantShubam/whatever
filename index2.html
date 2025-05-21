@@ -37,6 +37,12 @@
     .gold-btn:hover {
       background-color: #e6d315;
     }
+    #menu-toggle {
+      color: #FFD700;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
     @media (max-width: 1023px) {
       #nav-menu {
         position: fixed;
@@ -47,24 +53,25 @@
         background-color: #000;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         z-index: 1000;
       }
       #nav-menu.active {
+        display: flex;
         transform: translateX(0);
       }
       #nav-menu a {
-        color: #fff;
+        color: white;
       }
     }
     @media (min-width: 1024px) {
       #nav-menu {
         position: static;
         transform: none;
-        display: flex;
+        display: flex !important;
         flex-direction: row;
         justify-content: center;
         width: auto;
@@ -72,32 +79,69 @@
         background-color: transparent;
       }
       #nav-menu a {
-        color: #fff;
+        color: white;
       }
     }
-    #menu-toggle {
-      color: #FFD700;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    #menu-toggle i {
-      display: inline-block;
-    }
     .news-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      background-color: #FFE115;
-      color: #000;
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
     }
     .news-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+      background-color: #1a1a1a;
+      transform: translateY(-4px);
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+    }
+    .footer-link:hover {
+      color: #FFE115;
+    }
+    .footer {
+      background-color: #000;
+      color: #f5f5f5;
+      padding: 2rem 0;
+      border-top: 1px solid #FFD700;
+    }
+    .footer a {
+      color: #f5f5f5;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #FFD700;
+    }
+    .footer .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+    }
+    .footer .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer .contact {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer .copyright {
+      font-size: 0.875rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .contact-section a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+    .contact-section a:hover {
+      color: #e6d315;
     }
   </style>
 </head>
 <body class="font-sans">
   <!-- Navbar -->
-  <nav class="sticky top-0 flex items-center justify-between px-6 py-4 mt-[25px] z-50">
+  <nav class="sticky top-0 flex items-center justify-between px-6 py-4 mt-[25px] z-50 bg-black">
     <div class="text-yellow-400 font-bold text-lg">Vestige Gold</div>
     <ul id="nav-menu" class="flex-1 flex flex-col lg:flex-row justify-center space-y-4 lg:space-y-0 lg:space-x-6 text-white text-sm">
       <li><a href="#" class="hover:text-yellow-400">Home</a></li>
@@ -114,7 +158,7 @@
     <h1 class="font-bold mb-4 text-[32px] md:text-[48px] lg:text-[64px] leading-tight">
       Empowering The Future Of<br> Natural Resources
     </h1>
-    <p class="max-w-3xl mx-auto my-20 text-gray-300 text-[13px] md:text-[16px] lg:text-[20px] ">
+    <p class="max-w-3xl mx-auto my-20 text-gray-300 text-[13px] md:text-[16px] lg:text-[20px]">
       At Vestige Gold, we lead with integrity, harnessing the Earth’s treasures through ethical innovation,
       sustainable mining, and visionary leadership. Our mission is to shape a responsible legacy that uplifts
       communities and ecosystems alike.
@@ -124,7 +168,7 @@
 
   <!-- About Us -->
   <section id="about" class="py-20 px-6 flex flex-col md:flex-row items-start">
-    <div class="md:w-1/2">
+    <div class="md:w-1/2 w-full">
       <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold mb-4 text-left">About Us</h2>
       <p class="text-[13px] md:text-[16px] lg:text-[20px] text-gray-300 mb-6 text-left">
         At Vestige Gold, we are redefining the natural resources sector through a commitment to ethical leadership,
@@ -152,7 +196,7 @@
     <img src="image 2.png" alt="Team" class="mt-8 mx-auto w-4/5 rounded-[20px] shadow-md">
   </section>
 
-  <!-- Privacy & Legal -->
+  <!-- Privacy -->
   <section id="privacy" class="py-20 px-6">
     <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold mb-4">Privacy & Legal</h2>
     <p class="max-w-3xl text-gray-300 mb-6">
@@ -161,40 +205,67 @@
       data, uphold ethical business conduct, and ensure full alignment with evolving ESG and governance frameworks.
     </p>
     <button class="gold-btn">Read More</button>
-    
+    <img src="https://images.unsplash.com/photo-1611078489935-580b56c5223f?auto=format&fit=crop&w=1000&q=80" alt="Library" class="mt-8 w-full rounded-[20px] shadow-md">
   </section>
 
   <!-- Latest News -->
   <section id="news" class="py-20 px-6">
     <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold mb-6">Latest News</h2>
     <p class="text-gray-300 mb-4">Stay informed with the latest developments from Vestige Gold.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div class="news-card flex flex-col space-y-2 p-4 rounded-lg">
-        <div class="flex items-center space-x-2">
-          <i class="fa-solid fa-newspaper"></i>
-          <p>Aditya Raj Kothari Advocates Sustainability, Ethical Leadership, and Innovation at Critical Minerals North American Conference</p>
-        </div>
-        <a href="#" class="gold-btn self-center">Read More</a>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 m">
+      <div class="news-card p-6 mt-10">
+        <i class="fa-solid fa-newspaper mb-3 text-yellow-400 text-2xl"></i>
+        <p class="mb-4">Aditya Raj Kothari Advocates Sustainability, Ethical Leadership, and Innovation at Critical Minerals North American Conference</p>
+        <a href="https://www.msn.com/en-us/money/other/aditya-raj-kothari-advocates-sustainability-ethical-leadership-and-innovation-at-critical-minerals-north-american-conference/ar-AA1BWIjs" class="gold-btn">Read More</a>
       </div>
-      <div class="news-card flex flex-col space-y-2 p-4 rounded-lg">
-        <div class="flex items-center space-x-2">
-          <i class="fa-solid fa-newspaper"></i>
-          <p>Aditya Raj Kothari Advocates Sustainability, Ethical Leadership, and Innovation at Critical Minerals North American Conference</p>
-        </div>
-        <a href="#" class="gold-btn self-center">Read More</a>
+      <div class="news-card p-6 mt-10">
+        <i class="fa-solid fa-newspaper mb-3 text-yellow-400 text-2xl"></i>
+        <p class="mb-4">Aditya Raj Kothari Launches Vestige Gold Inc, a subsidiary of Vasundhara Ananta Natural Resources Inc. to drive Ethical Leadership and Sustainable Resource Management</p>
+        <a href="https://apnews.com/press-release/marketersmedia/vasundhara-ananta-raj-kothari-46b2a199dc2a64277ef43a79938664e3" target="_blank" class="gold-btn">Read More</a>
       </div>
-      <div class="news-card flex flex-col space-y-2 p-4 rounded-lg">
-        <div class="flex items-center space-x-2">
-          <i class="fa-solid fa-newspaper"></i>
-          <p>Aditya Raj Kothari Advocates Sustainability, Ethical Leadership, and Innovation at Critical Minerals North American Conference</p>
-        </div>
-        <a href="#" class="gold-btn self-center">Read More</a>
+      <div class="news-card p-6 mt-10">
+        <i class="fa-solid fa-newspaper mb-3 text-yellow-400 text-2xl"></i>
+        <p class="mb-4">Redefining the Natural Resources Sector Through Youth, Values, and Sustainable Vision</p>
+        <a href="https://usanews.com/newsroom/Aditya_Raj_Kothari_Redefining_the_Natural_Resources_Sector_Through_Youth_Values_and_Sustainable_Vision" class="gold-btn">Read More</a>
       </div>
     </div>
   </section>
 
+  <!-- Contact Us -->
+  <section id="contact" class="py-20 px-6 contact-section">
+    <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold mb-6">Contact Us</h2>
+    <p class="max-w-3xl text-gray-300 mb-2">VESTIGE GOLD INC.</p>
+    <p class="max-w-3xl text-gray-300 mb-2">Mr. Aditya Raj Kothari</p>
+    <p class="max-w-3xl text-gray-300 mb-2">Chief Executive Officer</p>
+    <p class="max-w-3xl text-gray-300 mb-2">Vestige Gold</p>
+    <p class="max-w-3xl text-gray-300 mb-2">One World Trade Center - 85th Floor, Suite 8500, NY, 10007</p>
+    <p class="max-w-3xl text-gray-300 mb-2">Mobile: 209-776-5197</p>
+    <p class="max-w-3xl text-gray-300 mb-2">Office: 212-561-5893</p>
+    <p class="max-w-3xl text-gray-300 mb-6">
+      Email: <a href="mailto:adityaraj@vestige.gold" class="hover:underline">adityaraj@vestige.gold</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-400 py-12 mt-20 border-t border-gray-800">
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0">
+      <div>
+        <h2 class="text-yellow-400 font-bold text-xl">Vestige Gold</h2>
+        <p class="mt-2 text-sm">© 2025 Vestige Gold. All rights reserved.</p>
+      </div>
+      <div class="flex flex-col lg:flex-row lg:space-x-6 space-y-2 lg:space-y-0">
+        <a href="#" class="footer-link hover:text-yellow-400">Home</a>
+        <a href="#about" class="footer-link hover:text-yellow-400">About Us</a>
+        <a href="#management" class="footer-link hover:text-yellow-400">Management</a>
+        <a href="#privacy" class="footer-link hover:text-yellow-400">Privacy</a>
+        <a href="#news" class="footer-link hover:text-yellow-400">Latest News</a>
+        <a href="https://wa.me/10169" class="footer-link hover:text-yellow-400 flex items-center"><i class="fab fa-whatsapp mr-2"></i>Agency 10169</a>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    document.getElementById('menu-toggle').addEventListener('click', function() {
+    document.getElementById('menu-toggle').addEventListener('click', function () {
       document.getElementById('nav-menu').classList.toggle('active');
     });
   </script>
