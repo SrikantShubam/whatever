@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/fonts/Erstoria-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 /* Hamburger menu color */
 #menu-toggle i {
   color: #FFD700; /* Gold color */
