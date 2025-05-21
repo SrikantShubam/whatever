@@ -4,32 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vestige Gold</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       background-color: #000;
       color: #f5f5f5;
-      margin-left: 80px;
-      margin-right: 80px;
+      margin-left: 40px;
+      margin-right: 40px;
+      font-family: sans-serif;
     }
-  
-
+    @media (max-width: 1024px) {
+      body {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
     @media (max-width: 768px) {
       body {
-margin-left: 5px;
-      margin-right: 5px;
-
-         }
-
-    }
-      @media (max-width: 1024px) {
-         body {
-margin-left: 20px;
-      margin-right: 20px;
-
-         }
+        margin-left: 5px;
+        margin-right: 5px;
+      }
     }
     .gold-btn {
       background-color: #FFE115;
@@ -42,27 +37,88 @@ margin-left: 20px;
     .gold-btn:hover {
       background-color: #e6d315;
     }
+    #menu-toggle {
+      color: #FFD700;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    @media (max-width: 1023px) {
+      #nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      #nav-menu.active {
+        display: flex;
+        transform: translateX(0);
+      }
+      #nav-menu a {
+        color: white;
+      }
+    }
+    @media (min-width: 1024px) {
+      #nav-menu {
+        position: static;
+        transform: none;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+      }
+      #nav-menu a {
+        color: white;
+      }
+    }
+    .news-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .news-card:hover {
+      background-color: #1a1a1a;
+      transform: translateY(-4px);
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+    }
+    .footer-link:hover {
+      color: #FFE115;
+    }
   </style>
 </head>
 <body class="font-sans">
   <!-- Navbar -->
-  <nav class="flex items-center justify-between px-6 py-4 mt-[25px]">
+  <nav class="sticky top-0 flex items-center justify-between px-6 py-4 mt-[25px] z-50 bg-black">
     <div class="text-yellow-400 font-bold text-lg">Vestige Gold</div>
-    <ul class="flex-1 flex justify-center space-x-6 text-white text-sm">
+    <ul id="nav-menu" class="flex-1 flex flex-col lg:flex-row justify-center space-y-4 lg:space-y-0 lg:space-x-6 text-white text-sm">
       <li><a href="#" class="hover:text-yellow-400">Home</a></li>
       <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
       <li><a href="#management" class="hover:text-yellow-400">Management</a></li>
       <li><a href="#privacy" class="hover:text-yellow-400">Privacy</a></li>
       <li><a href="#news" class="hover:text-yellow-400">Latest News</a></li>
     </ul>
+    <button id="menu-toggle" class="lg:hidden"><i class="fas fa-bars"></i></button>
   </nav>
 
   <!-- Hero Section -->
   <section class="text-center py-20 px-6">
-    <h1 class="font-bold mb-4 text-[16px] sm:text-[32px] md:text-[48px] lg:text-[64px] leading-tight">
+    <h1 class="font-bold mb-4 text-[32px] md:text-[48px] lg:text-[64px] leading-tight">
       Empowering The Future Of<br> Natural Resources
     </h1>
-    <p class="max-w-3xl mx-auto text-gray-300 text-[13px] md:text-[16px] lg:text-[20px] mb-10">
+    <p class="max-w-3xl mx-auto my-20 text-gray-300 text-[13px] md:text-[16px] lg:text-[20px]">
       At Vestige Gold, we lead with integrity, harnessing the Earth’s treasures through ethical innovation,
       sustainable mining, and visionary leadership. Our mission is to shape a responsible legacy that uplifts
       communities and ecosystems alike.
@@ -71,21 +127,25 @@ margin-left: 20px;
   </section>
 
   <!-- About Us -->
-  <section id="about" class="py-20 px-6">
-    <h2 class="text-2xl font-bold mb-4 text-left">About Us</h2>
-    <p class="max-w-3xl text-gray-300 mb-6 text-left">
-      At Vestige Gold, we are redefining the natural resources sector through a commitment to ethical leadership,
-      innovation, and sustainability. Our foundation is built upon ancient principles and modern excellence — a unique
-      blend that drives us to responsibly harness the Earth's mineral wealth while preserving ecological harmony.
-    </p>
-    <button class="gold-btn">Read More</button>
-    <img src="image 1.png" alt="Forest" class="mt-8 w-full rounded-[20px] shadow-md">
+  <section id="about" class="py-20 px-6 flex flex-col md:flex-row items-start">
+    <div class="md:w-1/2 w-full">
+      <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold mb-4 text-left">About Us</h2>
+      <p class="text-[13px] md:text-[16px] lg:text-[20px] text-gray-300 mb-6 text-left">
+        At Vestige Gold, we are redefining the natural resources sector through a commitment to ethical leadership,
+        innovation, and sustainability. Our foundation is built upon ancient principles and modern excellence — a unique
+        blend that drives us to responsibly harness the Earth's mineral wealth while preserving ecological harmony.
+      </p>
+      <button class="gold-btn">Read More</button>
+    </div>
+    <div class="md:w-1/2 md:mt-16 md:ml-20 mt-10 md:ml-0 w-full">
+      <img src="image 1.png" alt="Forest" class="w-4/5 rounded-[20px] shadow-md">
+    </div>
   </section>
 
   <!-- Management -->
   <section id="management" class="py-20 px-6">
-    <h2 class="text-2xl font-bold text-center mb-4">Our Leadership</h2>
-    <p class="max-w-3xl mx-auto text-center text-gray-300 mb-6">
+    <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold text-center mb-4">Our Leadership</h2>
+    <p class="max-w-3xl mx-auto text-center text-gray-300 my-10">
       At Vestige Gold, our management team is the driving force behind our mission to redefine the natural resources
       industry. With decades of expertise across mining, operations, finance, and ESG, our leaders embody the principles
       of ethical stewardship, strategic foresight, and transformative innovation.
@@ -93,36 +153,66 @@ margin-left: 20px;
     <div class="text-center">
       <button class="gold-btn">Read More</button>
     </div>
-    <img src="image 2.png" alt="Team" class="mt-8 mx-auto w-full rounded-[20px] shadow-md">
+    <img src="image 2.png" alt="Team" class="mt-8 mx-auto w-4/5 rounded-[20px] shadow-md">
   </section>
 
-  <!-- Privacy & Legal -->
+  <!-- Privacy -->
   <section id="privacy" class="py-20 px-6">
-    <h2 class="text-2xl font-bold mb-4">Privacy & Legal</h2>
+    <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold mb-4">Privacy & Legal</h2>
     <p class="max-w-3xl text-gray-300 mb-6">
       At Vestige Gold, we are committed to protecting the trust placed in us by our stakeholders. Our privacy and legal
       policies are guided by transparency, accountability, and international compliance standards. We safeguard personal
       data, uphold ethical business conduct, and ensure full alignment with evolving ESG and governance frameworks.
     </p>
     <button class="gold-btn">Read More</button>
-    <img src="https://images.unsplash.com/photo-1611078489935-580b56c5223f?auto=format&fit=crop&w=1000&q=80" alt="Library" class="mt-8 w-full rounded-[20px] shadow-md">
   </section>
 
   <!-- Latest News -->
   <section id="news" class="py-20 px-6">
-    <h2 class="text-2xl font-bold mb-6">Latest News</h2>
+    <h2 class="text-[24px] md:text-[32px] lg:text-[48px] font-bold mb-6">Latest News</h2>
     <p class="text-gray-300 mb-4">Stay informed with the latest developments from Vestige Gold.</p>
-    <div class="space-y-4">
-      <div class="gold-btn text-left">
-        <i class="fas fa-link mr-2"></i> Aditya Raj Kothari Advocates Sustainability, Ethical Leadership, and Innovation at Critical Minerals North American Conference
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 m">
+      <div class="news-card p-6 mt-10">
+        <i class="fa-solid fa-newspaper mb-3 text-yellow-400 text-2xl"></i>
+        <p class="mb-4">Aditya Raj Kothari Advocates Sustainability, Ethical Leadership, and Innovation at Critical Minerals North American Conference</p>
+        <a href="https://www.msn.com/en-us/money/other/aditya-raj-kothari-advocates-sustainability-ethical-leadership-and-innovation-at-critical-minerals-north-american-conference/ar-AA1BWIjs" class="gold-btn">Read More</a>
       </div>
-      <div class="gold-btn text-left">
-        <i class="fas fa-link mr-2"></i> Aditya Raj Kothari Advocates Sustainability, Ethical Leadership, and Innovation at Critical Minerals North American Conference
+      <div class="news-card p-6 mt-10">
+        <i class="fa-solid fa-newspaper mb-3 text-yellow-400 text-2xl"></i>
+        <p class="mb-4">Aditya Raj Kothari Launches Vestige Gold Inc, a subsidiary of Vasundhara Ananta Natural Resources Inc. to drive Ethical Leadership and Sustainable Resource Management
+</p>
+        <a href="https://apnews.com/press-release/marketersmedia/vasundhara-ananta-raj-kothari-46b2a199dc2a64277ef43a79938664e3" target="_blank" class="gold-btn">Read More</a>
       </div>
-      <div class="gold-btn text-left">
-        <i class="fas fa-link mr-2"></i> Aditya Raj Kothari Advocates Sustainability, Ethical Leadership, and Innovation at Critical Minerals North American Conference
+      <div class="news-card p-6 mt-10">
+        <i class="fa-solid fa-newspaper mb-3 text-yellow-400 text-2xl"></i>
+        <p class="mb-4">Redefining the Natural Resources Sector Through Youth, Values, and Sustainable Vision</p>
+        <a href="https://usanews.com/newsroom/Aditya_Raj_Kothari_Redefining_the_Natural_Resources_Sector_Through_Youth_Values_and_Sustainable_Vision" class="gold-btn">Read More</a>
       </div>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-400 py-12 mt-20 border-t border-gray-800">
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0">
+      <div>
+        <h2 class="text-yellow-400 font-bold text-xl">Vestige Gold</h2>
+        <p class="mt-2 text-sm">© 2024 Vestige Gold. All rights reserved.</p>
+      </div>
+      <div class="flex flex-col lg:flex-row lg:space-x-6 space-y-2 lg:space-y-0">
+        <a href="#" class="footer-link hover:text-yellow-400">Home</a>
+        <a href="#about" class="footer-link hover:text-yellow-400">About Us</a>
+        <a href="#management" class="footer-link hover:text-yellow-400">Management</a>
+        <a href="#privacy" class="footer-link hover:text-yellow-400">Privacy</a>
+        <a href="#news" class="footer-link hover:text-yellow-400">Latest News</a>
+        <a href="https://wa.me/10169" class="footer-link hover:text-yellow-400 flex items-center"><i class="fab fa-whatsapp mr-2"></i>Agency 10169</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      document.getElementById('nav-menu').classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
