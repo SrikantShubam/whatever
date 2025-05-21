@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vestige Gold - Management</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="icon" type="image/png" href="favicon_io (4)/android-chrome-192x192.png" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
@@ -130,14 +132,14 @@
 </head>
 <body class="font-sans">
   <!-- Navbar -->
-  <nav class="sticky top-0 flex items-center justify-between px-6 py-4 mt-6 z-50 bg-black">
-    <div class="text-yellow-400 font-bold text-xl">Vestige Gold</div>
+   <nav class="sticky top-0 flex items-center justify-between px-6 py-4 mt-[25px] z-50 bg-black">
+    <div class="text-yellow-400 font-bold text-lg">Vestige Gold</div>
     <ul id="nav-menu" class="flex-1 flex flex-col lg:flex-row justify-center space-y-4 lg:space-y-0 lg:space-x-6 text-white text-sm">
-      <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+      <li><a href="index.html" class="hover:text-yellow-400 ">Home</a></li>
       <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
-      <li><a href="#management" class="text-yellow-400 font-medium active">Management</a></li>
- 
-      <li><a href="index.html#news" class="hover:text-yellow-400">Latest News</a></li>
+      <li><a href="management.html" class="hover:text-yellow-400 active">Our Leadership</a></li>
+      <li><a href="index.html#news" id="news" class="hover:text-yellow-400">Latest News</a></li>
+    <li><a href="index.html#contact"  class="hover:text-yellow-400">Contact Us</a></li>
     </ul>
     <button id="menu-toggle" class="lg:hidden"><i class="fas fa-bars"></i></button>
   </nav>
@@ -379,12 +381,12 @@
         <p class="mt-2 text-sm">© 2025 Vestige Gold. All rights reserved.</p>
       </div>
       <div class="flex flex-col lg:flex-row lg:space-x-6 space-y-2 lg:space-y-0">
-        <a href="#" class="footer-link hover:text-yellow-400">Home</a>
+        <a href="index.html" class="footer-link hover:text-yellow-400">Home</a>
         <a href="#about" class="footer-link hover:text-yellow-400">About Us</a>
-        <a href="#management" class="footer-link hover:text-yellow-400">Management</a>
-        <a href="#privacy" class="footer-link hover:text-yellow-400">Privacy</a>
-        <a href="#news" class="footer-link hover:text-yellow-400">Latest News</a>
-        <a href="https://wa.me/10169" class="footer-link hover:text-yellow-400 flex items-center"><i class="fab fa-whatsapp mr-2"></i>Agency 10169</a>
+        <a href="management.html" class="footer-link hover:text-yellow-400 active">Management</a>
+
+        <a href="index.html#news" class="footer-link hover:text-yellow-400">Latest News</a>
+        <a href="https://wa.link/nb6hft" target="_blank" class="footer-link hover:text-yellow-400 flex items-center"><i class="fab fa-whatsapp mr-2"></i>Agency 10169</a>
       </div>
     </div>
   </footer>

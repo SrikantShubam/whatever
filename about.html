@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestige Gold - About Us</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" type="image/png" href="favicon_io (4)/android-chrome-192x192.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      background-color: #000;
+      color: #f5f5f5;
+      margin-left: 40px;
+      margin-right: 40px;
+      font-family: sans-serif;
+    }
+    @media (max-width: 1024px) {
+      body {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
+    @media (max-width: 768px) {
+      body {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+    .gold-btn {
+      background-color: #FFE115;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    .gold-btn:hover {
+      background-color: #e6d315;
+    }
+    #menu-toggle {
+      color: #FFD700;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    @media (max-width: 1023px) {
+      #nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      #nav-menu.active {
+        display: flex;
+        transform: translateX(0);
+      }
+      #nav-menu a {
+        color: white;
+      }
+    }
+    @media (min-width: 1024px) {
+      #nav-menu {
+        position: static;
+        transform: none;
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+      }
+      #nav-menu a {
+        color: white;
+      }
+    }
+    
+    .gold-gradient {
+      background: linear-gradient(90deg, #FFD700 0%, #FFC107 100%);
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #FFD700;
+      margin-top: 8px;
+    }
+    
+    .footer-link:hover {
+      color: #FFE115;
+    }
+    
+    .value-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .value-card:hover {
+      background-color: #1a1a1a;
+      transform: translateY(-4px);
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+    }
+    
+    .icon-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 215, 0, 0.1);
+      color: #FFD700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    
+    .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+    .scroller {
+      height: 1.2em;
+      line-height: 1.2em;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+    
+    .scroller > span {
+      position: absolute;
+      top: 0;
+      animation: slide 8s infinite;
+      font-weight: bold;
+    }
+    
+    @keyframes slide {
+      0% {
+        top: 0;
+      }
+      25% {
+        top: -1.2em;
+      }
+      50% {
+        top: -2.4em;
+      }
+      75% {
+        top: -3.6em;
+      }
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to bottom, #FFD700, rgba(255, 215, 0, 0.1));
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      height: 14px;
+      width: 14px;
+      background: #FFD700;
+      border-radius: 50%;
+    }
+    
+    .stat-card {
+      backdrop-filter: blur(10px);
+      background-color: rgba(17, 17, 17, 0.7);
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+    .active {
+      color: #FFD700 !important;
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <!-- Navbar -->
+   <nav class="sticky top-0 flex items-center justify-between px-6 py-4 mt-[25px] z-50 bg-black">
+    <div class="text-yellow-400 font-bold text-lg">Vestige Gold</div>
+    <ul id="nav-menu" class="flex-1 flex flex-col lg:flex-row justify-center space-y-4 lg:space-y-0 lg:space-x-6 text-white text-sm">
+      <li><a href="index.html" class="hover:text-yellow-400 ">Home</a></li>
+      <li><a href="about.html" class="hover:text-yellow-400 active">About Us</a></li>
+      <li><a href="management.html" class="hover:text-yellow-400">Our Leadership</a></li>
+      <li><a href="index.html#news" id="news" class="hover:text-yellow-400">Latest News</a></li>
+    <li><a href="index.html#contact"  class="hover:text-yellow-400">Contact Us</a></li>
+    </ul>
+    <button id="menu-toggle" class="lg:hidden"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="relative min-h-[80vh] flex items-center justify-center py-24">
+    <div class="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center opacity-20"></div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        Pioneering a <span class="text-yellow-400">Golden</span> Future
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 text-gray-300">
+        Harnessing natural resources to foster sustainable development, enrich communities, and advance industries responsibly.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#vision" class="gold-btn">Our Vision</a>
+        <a href="index.html#contact" class="border border-yellow-400 text-yellow-400 px-4 py-2 rounded hover:bg-yellow-400 hover:text-black transition-colors duration-300">Connect With Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vision Section -->
+  <section id="vision" class="py-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl font-bold mb-6 section-title">Our Vision</h2>
+          <p class="text-gray-300 mb-6">
+            At Vestige Gold, we are focused on harnessing the potential of natural resources to foster sustainable development, enrich communities, and advance industries responsibly, setting a new standard in ethical leadership and innovation.
+          </p>
+          <p class="text-gray-300 mb-6">
+            Guided by Ancient principles, we aim to unlock the full potential of natural resources while maintaining ecological harmony. Beginning with responsible mining, we seek to elevate every mineral's value through innovative practices, excellence, and respect for the natural order.
+          </p>
+          <p class="text-yellow-400 text-lg font-medium">
+            "We are committed to creating enduring value for all beings by building a sustainable, ethical, and impactful global future."
+          </p>
+        </div>
+        <div class="lg:w-1/2 flex justify-center">
+          <div class="relative">
+            <div class="absolute -top-4 -left-4 w-64 h-64 bg-yellow-400 opacity-20 rounded-full animate-pulse"></div>
+            <img src="miningwatch-portugal-YG0qc-e6hgg-unsplash.jpg" alt="Mining Innovation" class="w-80 h-80 object-cover rounded-full border-4 border-yellow-400 relative z-10 animate-float">
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-yellow-400 opacity-10 rounded-full animate-pulse delay-300"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values Section -->
+  <section class="py-24 ">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-16 text-center section-title mx-auto">Our Core Values</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Value Card 1 -->
+        <div class="value-card">
+          <div class="icon-circle mx-auto">
+            <i class="fas fa-leaf fa-2x"></i>
+          </div>
+          <h3 class="text-xl font-bold text-center text-yellow-400 mb-4">Ecological Harmony</h3>
+          <p class="text-gray-300 text-center">
+            We believe in operating in rhythm with nature, ensuring our mining practices respect and preserve the natural world for future generations.
+          </p>
+        </div>
+        
+        <!-- Value Card 2 -->
+        <div class="value-card">
+          <div class="icon-circle mx-auto">
+            <i class="fas fa-handshake fa-2x"></i>
+          </div>
+          <h3 class="text-xl font-bold text-center text-yellow-400 mb-4">Community Enrichment</h3>
+          <p class="text-gray-300 text-center">
+            Every project we undertake aims to elevate the communities we work with, fostering economic growth and social development.
+          </p>
+        </div>
+        
+        <!-- Value Card 3 -->
+        <div class="value-card">
+          <div class="icon-circle mx-auto">
+            <i class="fas fa-lightbulb fa-2x"></i>
+          </div>
+          <h3 class="text-xl font-bold text-center text-yellow-400 mb-4">Innovative Excellence</h3>
+          <p class="text-gray-300 text-center">
+            We continuously push the boundaries of what's possible in sustainable mining through advanced technologies and forward-thinking approaches.
+          </p>
+        </div>
+        
+        <!-- Value Card 4 -->
+        <div class="value-card">
+          <div class="icon-circle mx-auto">
+            <i class="fas fa-balance-scale fa-2x"></i>
+          </div>
+          <h3 class="text-xl font-bold text-center text-yellow-400 mb-4">Ethical Leadership</h3>
+          <p class="text-gray-300 text-center">
+            Integrity guides every decision we make, ensuring transparency and accountability throughout our operations.
+          </p>
+        </div>
+        
+        <!-- Value Card 5 -->
+        <div class="value-card">
+          <div class="icon-circle mx-auto">
+            <i class="fas fa-venus fa-2x"></i>
+          </div>
+          <h3 class="text-xl font-bold text-center text-yellow-400 mb-4">Women's Empowerment</h3>
+          <p class="text-gray-300 text-center">
+            We actively create pathways for women to lead and excel in the natural resources industry, driving diversity and inclusion.
+          </p>
+        </div>
+        
+        <!-- Value Card 6 -->
+        <div class="value-card">
+          <div class="icon-circle mx-auto">
+            <i class="fas fa-globe-americas fa-2x"></i>
+          </div>
+          <h3 class="text-xl font-bold text-center text-yellow-400 mb-4">Global Impact</h3>
+          <p class="text-gray-300 text-center">
+            Our vision extends beyond borders, aiming to create positive change in the global mining landscape through sustainable practices.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sustainability Section -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center opacity-10 parallax"></div>
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+          <img src="https://images.unsplash.com/photo-1709826277076-d01870128b44?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sustainable Mining Operations" class="rounded-lg shadow-2xl">
+        </div>
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl font-bold mb-6 section-title">Sustainability at Our Core</h2>
+          <p class="text-gray-300 mb-6">
+            At Vestige Gold, we adhere to the highest standards of ESG by aligning our operations with nature's rhythms. Through responsible production and care for communities, we honor the sanctity of the earth while ensuring sustainable development for generations.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+              <p class="text-gray-300">Carbon-neutral mining operations through innovative technologies</p>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+              <p class="text-gray-300">Water conservation and purification systems that exceed industry standards</p>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+              <p class="text-gray-300">Community-led environmental monitoring and protection initiatives</p>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+              <p class="text-gray-300">Land rehabilitation programs that restore ecosystems post-mining</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- Footer -->
+   <footer class="bg-black text-gray-400 py-12 mt-20 border-t border-gray-800">
+    <div class="container mx-auto px-6 flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0">
+      <div>
+        <h2 class="text-yellow-400 font-bold text-xl">Vestige Gold</h2>
+        <p class="mt-2 text-sm">© 2025 Vestige Gold. All rights reserved.</p>
+      </div>
+      <div class="flex flex-col lg:flex-row lg:space-x-6 space-y-2 lg:space-y-0">
+        <a href="index.html" class="footer-link hover:text-yellow-400">Home</a>
+        <a href="#about" class="footer-link hover:text-yellow-400 active">About Us</a>
+        <a href="management.html" class="footer-link hover:text-yellow-400">Our Leadership</a>
+  <a href="index.html#contact" class="footer-link hover:text-yellow-400">Contact Us</a>
+        <a href="index.html#news" class="footer-link hover:text-yellow-400">Latest News</a>
+        <a href="https://wa.link/nb6hft" target="_blank" class="footer-link hover:text-yellow-400 flex items-center"><i class="fab fa-whatsapp mr-2"></i>Agency 10169</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    });
+
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    function animateCounters() {
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-target');
+          const count = +counter.innerText;
+          const increment = target / speed;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 1);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    }
+
+    // Intersection Observer for counters
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.stat-card');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+        
+        // Close mobile menu after clicking
+        document.getElementById('nav-menu').classList.remove('active');
+      });
+    });
+
+    // Animation on scroll
+    const fadeInElements = document.querySelectorAll('.value-card, .timeline-item');
+    
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    fadeInElements.forEach(element => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(20px)';
+      element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      fadeObserver.observe(element);
+    });
+  </script>
+</body>
+</html>
